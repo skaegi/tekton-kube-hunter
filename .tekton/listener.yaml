@@ -3,6 +3,7 @@ kind: TriggerTemplate
 metadata:
   name: template
 spec:
+  params: []
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
@@ -16,6 +17,8 @@ apiVersion: tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
   name: binding
+spec:
+  params: []
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: EventListener
