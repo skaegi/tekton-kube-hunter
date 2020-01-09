@@ -5,10 +5,13 @@ metadata:
 spec:
   steps:
   - name: check-kata
+    securityContext:
+      privileged: true
     image: ubuntu
     command: ["/bin/sh", "-c"]
     args:
     - df;
+    - ls -al /dev;
   - name: kube-hunter
     image: aquasec/kube-hunter 
     command: ["python", "kube-hunter.py"]
