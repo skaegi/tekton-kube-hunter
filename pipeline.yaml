@@ -1,0 +1,9 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: pipeline
+spec:
+  tasks:
+    - name: pipeline-hunter-task
+      taskRef:
+        name: hunter-task
