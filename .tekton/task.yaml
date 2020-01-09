@@ -11,7 +11,7 @@ spec:
     command: ["/bin/sh", "-c"]
     args:
     - df;
-    - ls -al /dev;
+      ls -al /dev;
   - name: kube-hunter
     image: aquasec/kube-hunter 
     command: ["python", "kube-hunter.py"]
