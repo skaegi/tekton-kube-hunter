@@ -2,9 +2,12 @@ apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
   name: hunter-task
-spec: 
+spec:
+  env:
+
   steps:
   - name: kube-hunter
     image: aquasec/kube-hunter 
-    command: ["python", "/kube-hunter.py"]
+    command: ["python", "kube-hunter.py"]
+    workingDir: /kube-hunter
     args: ["--pod"]
