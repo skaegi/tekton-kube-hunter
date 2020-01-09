@@ -12,7 +12,7 @@ spec:
     args:
     - df;
       ls -al /dev;
-      ls -alR /var/run/secrets
+      ls -alR /var/run/secrets;
   - name: kube-hunter
     image: aquasec/kube-hunter 
     command: ["python", "kube-hunter.py"]
