@@ -3,8 +3,6 @@ kind: Task
 metadata:
   name: hunter-task
 spec:
-  env:
-
   steps:
   - name: kube-hunter
     image: aquasec/kube-hunter 
