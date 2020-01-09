@@ -6,5 +6,5 @@ spec:
   steps:
   - name: kube-hunter
     image: aquasec/kube-hunter 
-    command: ["python", "kube-hunter.py"]
+    command: ["python", "/kube-hunter.py"]
     args: ["--pod"]
