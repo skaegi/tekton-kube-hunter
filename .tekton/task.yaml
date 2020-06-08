@@ -14,6 +14,9 @@ spec:
       ls -al /dev;
       ls -alR /var/run/secrets;
       ls -al /opt/kata
+    volumeMounts:
+    - name: kata-artifacts
+      mountPath: /opt/kata/
   - name: kube-hunter
     image: aquasec/kube-hunter 
     command: ["python", "kube-hunter.py"]
