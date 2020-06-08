@@ -13,8 +13,14 @@ spec:
     - df;
       ls -al /dev;
       ls -alR /var/run/secrets;
+      ls -al /opt/kata
   - name: kube-hunter
     image: aquasec/kube-hunter 
     command: ["python", "kube-hunter.py"]
     workingDir: /kube-hunter
     args: ["--pod"]
+  volumes:
+  - name: kata-artifacts
+    hostPath:
+      path: /opt/kata/
+      type: DirectoryOrCreate
