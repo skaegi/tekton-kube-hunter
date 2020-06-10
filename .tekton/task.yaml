@@ -10,7 +10,8 @@ spec:
     image: ubuntu
     command: ["/bin/sh", "-c"]
     args:
-    - df;
+    - df -Th;
+      uname -a;
       ls -al /dev;
       ls -alR /var/run/secrets;
   - name: kube-hunter
