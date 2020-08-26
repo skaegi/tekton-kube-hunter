@@ -15,7 +15,7 @@ spec:
       ls -al /dev;
       ls -alR /var/run/secrets;
   - name: kube-hunter
-    image: aquasec/kube-hunter 
+    image: aquasec/kube-hunter@sha256:4ba7f14019eaf22c4aa0095ebbce463fcbf2e2074f6dae826634ec7ce7a876e9
     command: ["python", "kube-hunter.py"]
     workingDir: /kube-hunter
     args: ["--pod"]
