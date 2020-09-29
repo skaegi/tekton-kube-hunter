@@ -17,4 +17,4 @@ spec:
   - name: kube-hunter
     image: aquasec/kube-hunter
     command: ["kube-hunter"]
-    args: ["--pod"]
+    args: ["--pod", "--log", "DEBUG"]
