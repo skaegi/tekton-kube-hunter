@@ -14,7 +14,7 @@ spec:
       uname -a;
       ls -al /dev;
       ls -alR /var/run/secrets;
-      sleep 500;
+      apt-get update;
   - name: kube-hunter
     image: aquasec/kube-hunter
     command: ["kube-hunter"]
