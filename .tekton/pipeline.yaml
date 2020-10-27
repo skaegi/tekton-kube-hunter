@@ -6,4 +6,5 @@ spec:
   tasks:
     - name: pipeline-hunter-task
       taskRef:
-        name: hunter-task
+        name: hunter-cluster-task
+        kind: ClusterTask
