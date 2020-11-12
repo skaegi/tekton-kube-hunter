@@ -2,6 +2,8 @@ apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
   name: hunter-task
+  annotations:
+    io.kubernetes.cri.untrusted-workload: "false"
 spec:
   steps:
   - name: check-kata-privileged
