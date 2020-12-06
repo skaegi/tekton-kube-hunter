@@ -16,5 +16,6 @@ spec:
       ls -alR /var/run/secrets;
       apt-get update;
   - name: kube-hunter
-    image: aquasec/kube-hunter:0.4.1
+    image: aquasec/kube-hunter
+    command: ["kube-hunter"]
     args: ["--pod"]
