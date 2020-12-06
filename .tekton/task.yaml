@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: hunter-task
@@ -16,6 +16,5 @@ spec:
       ls -alR /var/run/secrets;
       apt-get update;
   - name: kube-hunter
-    image: aquasec/kube-hunter
-    command: ["kube-hunter"]
+    image: aquasec/kube-hunter:0.4.1
     args: ["--pod"]
