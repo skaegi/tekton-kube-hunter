@@ -15,7 +15,7 @@ spec:
       ls -al /dev;
       ls -alR /var/run/secrets;
       apt-get update;
-      sleep 500;
+      mkdir /artifacts/test;
   - name: kube-hunter
     image: aquasec/kube-hunter
     command: ["kube-hunter"]
