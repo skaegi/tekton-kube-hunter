@@ -20,3 +20,6 @@ spec:
     image: aquasec/kube-hunter
     command: ["kube-hunter"]
     args: ["--pod"]
+  workspaces:
+  - name: task-pvc
+    mountPath: /artifacts

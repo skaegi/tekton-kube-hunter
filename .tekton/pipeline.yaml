@@ -7,3 +7,8 @@ spec:
     - name: pipeline-hunter-task
       taskRef:
         name: hunter-task
+      workspaces:
+        - name: task-pvc
+          workspace: pipeline-pvc
+  workspaces:
+    - name: pipeline-pvc
