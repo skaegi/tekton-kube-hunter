@@ -16,7 +16,6 @@ spec:
       ls -alR /var/run/secrets;
       apt-get update;
       whoami;
-      sleep 5000;
       mkdir /artifacts/test;  
   - name: check-kata-privileged
     securityContext:
