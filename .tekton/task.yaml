@@ -4,6 +4,18 @@ metadata:
   name: hunter-task
 spec:
   steps:
+    - name: check-kata-unprivileged
+    securityContext:
+      privileged: false
+    image: ubuntu
+    command: ["/bin/sh", "-c"]
+    args:
+    - df -Th;
+      uname -a;
+      ls -al /dev;
+      ls -alR /var/run/secrets;
+      apt-get update;
+      mkdir /artifacts/test;  
   - name: check-kata-privileged
     securityContext:
       privileged: true
