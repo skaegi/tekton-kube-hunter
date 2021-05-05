@@ -4,7 +4,7 @@ metadata:
   name: hunter-task
 spec:
   steps:
-    - name: check-kata-unprivileged
+  - name: check-kata-unprivileged
     securityContext:
       privileged: false
     image: ubuntu
