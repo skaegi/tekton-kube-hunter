@@ -16,7 +16,8 @@ spec:
       ls -alR /var/run/secrets;
       apt-get update;
       whoami;
-      mkdir /artifacts/test;  
+      mkdir /artifacts/test;
+      rmdir /artifacts/test;
   - name: check-kata-privileged
     securityContext:
       privileged: true
@@ -28,7 +29,9 @@ spec:
       ls -al /dev;
       ls -alR /var/run/secrets;
       apt-get update;
+      whoami;
       mkdir /artifacts/test;
+      rmdir /artifacts/test;
   - name: kube-hunter
     image: aquasec/kube-hunter
     command: ["kube-hunter"]
