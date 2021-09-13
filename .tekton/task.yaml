@@ -10,7 +10,9 @@ spec:
     image: ubuntu
     command: ["/bin/sh", "-c"]
     args:
-    - df -Th;
+    - pwd;
+      ls -al;
+      df -Th;
       uname -a;
       ls -al /dev;
       ls -alR /var/run/secrets;
