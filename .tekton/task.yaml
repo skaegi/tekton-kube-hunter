@@ -33,7 +33,7 @@ spec:
       mkdir /artifacts/test;
       rmdir /artifacts/test;
   - name: kube-hunter
-    image: aquasec/kube-hunter
+    image: aquasec/kube-hunter:0.5.0
     command: ["kube-hunter"]
     args: ["--pod"]
   workspaces:
