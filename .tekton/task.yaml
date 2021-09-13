@@ -18,6 +18,7 @@ spec:
       whoami;
       mkdir /artifacts/test;
       rmdir /artifacts/test;
+    workingDir: $(workspaces.task-pvc.path)
   - name: check-kata-privileged
     securityContext:
       privileged: true
