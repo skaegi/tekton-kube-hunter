@@ -7,11 +7,6 @@ spec:
     - name: pipeline-hunter-task-amd64
       taskRef:
         name: hunter-task-amd64
-      workspaces:
-        - name: task-pvc
-          workspace: pipeline-pvc
     - name: pipeline-hunter-task
       taskRef:
         name: hunter-task-s390
-  workspaces:
-    - name: pipeline-pvc

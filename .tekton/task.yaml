@@ -27,9 +27,6 @@ spec:
       ls -alR /var/run/secrets;
       apt-get update;
       whoami;
-      mkdir /artifacts/test;
-      rmdir /artifacts/test;
-    workingDir: $(workspaces.task-pvc.path)
   - name: check-kata-privileged
     securityContext:
       privileged: true
@@ -42,17 +39,6 @@ spec:
       ls -alR /var/run/secrets;
       apt-get update;
       whoami;
-      mkdir /artifacts/test;
-      rmdir /artifacts/test;
-    workingDir: $(workspaces.task-pvc.path)
-  - name: kube-hunter
-    image: aquasec/kube-hunter:0.5.0
-    command: ["kube-hunter"]
-    args: ["--pod"]
-    workingDir: $(workspaces.task-pvc.path)
-  workspaces:
-  - name: task-pvc
-    mountPath: /artifacts
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task
