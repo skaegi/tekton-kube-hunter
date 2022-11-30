@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: hunter-task
+  name: hunter-task-amd64
 spec:
   steps:
   - name: check-kata-unprivileged
@@ -44,3 +44,35 @@ spec:
   workspaces:
   - name: task-pvc
     mountPath: /artifacts
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hunter-task-s390
+spec:
+  steps:
+  - name: check-kata-unprivileged
+    securityContext:
+      privileged: false
+    image: ubi8/ubi
+    command: ["/bin/sh", "-c"]
+    args:
+    - pwd;
+      ls -al;
+      df -Th;
+      uname -a;
+      ls -al /dev;
+      ls -alR /var/run/secrets;
+      whoami;
+  - name: check-kata-privileged
+    securityContext:
+      privileged: true
+    image: ubi8/ubi
+    command: ["/bin/sh", "-c"]
+    args:
+    - df -Th;
+      uname -a;
+      ls -al /dev;
+      ls -alR /var/run/secrets;
+      whoami;
+
