@@ -23,6 +23,18 @@ spec:
       spec:
         pipelineRef:
             name: pipeline
+        taskRunSpecs:
+          - name: hunter-task-s390
+            taskPodTemplate:
+              affinity:
+                nodeAffinity:
+                  requiredDuringSchedulingIgnoredDuringExecution:
+                    nodeSelectorTerms:
+                      - matchExpressions:
+                        - key: arch
+                          operator: In
+                          values:
+                          - s390
         workspaces:
           - name: pipeline-pvc
             persistentVolumeClaim:
