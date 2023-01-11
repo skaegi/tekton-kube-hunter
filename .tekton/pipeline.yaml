@@ -7,6 +7,6 @@ spec:
     - name: pipeline-hunter-task-amd64
       taskRef:
         name: hunter-task-amd64
-    - name: pipeline-hunter-task
+    - name: pipeline-hunter-task-s390
       taskRef:
         name: hunter-task-s390
