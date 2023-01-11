@@ -24,7 +24,7 @@ spec:
         pipelineRef:
             name: pipeline
         taskRunSpecs:
-          - name: pipeline-hunter-task-s390
+          - pipelineTaskName: pipeline-hunter-task-s390
             taskPodTemplate:
               affinity:
                 nodeAffinity:
