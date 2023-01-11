@@ -34,7 +34,7 @@ spec:
                         - key: arch
                           operator: In
                           values:
-                          - s390
+                          - s390x
               tolerations:
                 - key: "node.kubernetes.io/network-unavailable"
                   operator: "Exists"
