@@ -35,6 +35,10 @@ spec:
                           operator: In
                           values:
                           - s390
+              tolerations:
+                - key: "node.kubernetes.io/network-unavailable"
+                  operator: "Exists"
+                  effect: "NoSchedule"
         workspaces:
           - name: pipeline-pvc
             persistentVolumeClaim:
