@@ -1,43 +1,10 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: hunter-task-amd64
+  name: hunter-task
 spec:
   steps:
-  - name: check-kata-unprivileged
-    securityContext:
-      privileged: false
-    image: ubuntu
-    command: ["/bin/sh", "-c"]
-    args:
-    - pwd;
-      ls -al;
-      df -Th;
-      uname -a;
-      ls -al /dev;
-      ls -alR /var/run/secrets;
-      apt-get update;
-      whoami;
-  - name: check-kata-privileged
-    securityContext:
-      privileged: true
-    image: ubuntu
-    command: ["/bin/sh", "-c"]
-    args:
-    - df -Th;
-      uname -a;
-      ls -al /dev;
-      ls -alR /var/run/secrets;
-      apt-get update;
-      whoami;
----
-apiVersion: tekton.dev/v1beta1
-kind: Task
-metadata:
-  name: hunter-task-s390
-spec:
-  steps:
-  - name: check-kata-unprivileged
+  - name: check-unprivileged
     securityContext:
       privileged: false
     image: registry.access.redhat.com/ubi8
@@ -50,7 +17,7 @@ spec:
       ls -al /dev;
       ls -alR /var/run/secrets;
       whoami;
-  - name: check-kata-privileged
+  - name: check-privileged
     securityContext:
       privileged: true
     image: registry.access.redhat.com/ubi8
