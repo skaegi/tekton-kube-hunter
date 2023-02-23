@@ -24,6 +24,17 @@ spec:
         pipelineRef:
             name: pipeline
         taskRunSpecs:
+          - pipelineTaskName: pipeline-hunter-task-amd64
+            taskPodTemplate:
+              affinity:
+                nodeAffinity:
+                  requiredDuringSchedulingIgnoredDuringExecution:
+                    nodeSelectorTerms:
+                      - matchExpressions:
+                        - key: arch
+                          operator: In
+                          values:
+                          - amd64
           - pipelineTaskName: pipeline-hunter-task-s390
             taskPodTemplate:
               affinity:
@@ -36,10 +47,6 @@ spec:
                           values:
                           - s390x
               automountServiceAccountToken: false
-              tolerations:
-                - key: "node.kubernetes.io/network-unavailable"
-                  operator: "Exists"
-                  effect: "NoSchedule"
         workspaces:
           - name: pipeline-pvc
             persistentVolumeClaim:
