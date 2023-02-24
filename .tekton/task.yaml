@@ -10,22 +10,24 @@ spec:
     image: registry.access.redhat.com/ubi8
     command: ["/bin/sh", "-c"]
     args:
-    - pwd;
+    - uname -a;
+      whoami;
+      pwd;
       ls -al;
       df -Th;
-      uname -a;
       ls -al /dev;
       ls -alR /var/run/secrets;
-      whoami;
   - name: check-privileged
     securityContext:
       privileged: true
     image: registry.access.redhat.com/ubi8
     command: ["/bin/sh", "-c"]
     args:
-    - df -Th;
-      uname -a;
+    - uname -a;
+      whoami;
+      pwd;
+      ls -al;
+      df -Th;
       ls -al /dev;
       ls -alR /var/run/secrets;
-      whoami;
 
