@@ -35,7 +35,7 @@ spec:
                           operator: In
                           values:
                           - amd64
-            automountServiceAccountToken: false
+              automountServiceAccountToken: false
           - pipelineTaskName: pipeline-hunter-task-s390
             taskPodTemplate:
               affinity:
