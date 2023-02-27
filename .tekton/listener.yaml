@@ -35,7 +35,7 @@ spec:
                           operator: In
                           values:
                           - amd64
-              automountServiceAccountToken: false
+              automountServiceAccountToken: true
           - pipelineTaskName: pipeline-hunter-task-s390x
             taskPodTemplate:
               affinity:
@@ -47,7 +47,7 @@ spec:
                           operator: In
                           values:
                           - s390x
-              automountServiceAccountToken: false
+              automountServiceAccountToken: true
         workspaces:
           - name: pipeline-pvc
             persistentVolumeClaim:
