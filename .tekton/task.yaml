@@ -16,11 +16,16 @@ spec:
       uname -a;
       ls -al /dev;
       ls -alR /var/run/secrets;
-      apt-get update;
       whoami;
       mkdir /artifacts/test;
       rmdir /artifacts/test;
-      sleep 60;
+      apt update;
+      apt install curl tar xz-utils -y;
+      cd ~;
+      time curl -Ls -O https://github.com/kata-containers/kata-containers/releases/download/3.2.0/kata-static-3.2.0-amd64.tar.xz;
+      time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz
+      cd /artifacts
+      time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz
     workingDir: $(workspaces.task-pvc.path)
   - name: check-kata-privileged
     securityContext:
