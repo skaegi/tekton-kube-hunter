@@ -20,7 +20,7 @@ spec:
       mkdir /artifacts/test;
       rmdir /artifacts/test;
       apt update;
-      apt install curl tar xz-utils -y;
+      apt install time curl tar xz-utils -y;
       cd ~;
       time curl -Ls -O https://github.com/kata-containers/kata-containers/releases/download/3.2.0/kata-static-3.2.0-amd64.tar.xz;
       time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz
