@@ -33,7 +33,7 @@ spec:
     securityContext:
       privileged: true
     image: ubuntu
-    command: ["/bin/sh", "-c"]
+    command: ["/bin/bash", "-c"]
     args:
     - df -Th;
       uname -a;
