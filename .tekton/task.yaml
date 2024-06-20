@@ -11,9 +11,7 @@ spec:
     script: |
       set -o errexit;
       set -x;
-      while true; do meminfo=$(cat /proc/meminfo) && total_mem=$(echo "$meminfo" | grep -i 'MemTotal' | awk '{print $2}') && free_mem=$(echo "$meminfo" | grep -i 'MemFree' | awk '{print $2}') && mem=$(echo "$free_mem $total_mem" |  awk '{printf "%.1f%%", 100*(1-$1/$2)}') && disk=$(df -h | awk '$NF=="/"{printf "%s", $5}') && echo "[Memory: $mem, Disk: $disk]" && sleep 5; done
-      pwd;
-      ls -al;
+      while true; do total_mem=$(grep -i 'MemTotal' /proc/meminfo | awk '{print $2}') && free_mem=$(echo "grep -i 'MemFree' /proc/meminfo | awk '{print $2}') && mem=$(echo "$free_mem $total_mem" |  awk '{printf "%.1f%%", 100*(1-$1/$2)}') && disk=$(df -h | awk '$NF=="/"{printf "%s", $5}') && echo "[Memory: $mem, Disk: $disk]" && sleep 5; done &
       df -Th;
       uname -a;
       ls -al /dev;
