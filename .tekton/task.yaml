@@ -8,9 +8,8 @@ spec:
     securityContext:
       privileged: false
     image: ubuntu
-    command: ["/bin/bash", "-c"]
-    args:
-    - set -o errexit;
+    script: |
+      set -o errexit;
       set -x;
       while true; do free -m | awk "NR==2{printf \"[Memory: %.2f%%, \", \$3*100/\$2 }"; df -h | awk '$NF=="/"{printf "Disk: %s]\n", $5}'; sleep 30; done &;
       pwd;
