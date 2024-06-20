@@ -9,8 +9,8 @@ spec:
       privileged: false
     image: ubuntu
     script: |
+      #!/usr/bin/env bash
       set -o errexit;
-      set -x;
       while true; do total_mem=$(grep -i 'MemTotal' /proc/meminfo | awk '{print $2}') && free_mem=$(grep -i 'MemFree' /proc/meminfo | awk '{print $2}') && mem=$(echo "$free_mem $total_mem" |  awk '{printf "%.1f%%", 100*(1-$1/$2)}') && disk=$(df -h | awk '$NF=="/"{printf "%s", $5}') && echo "[Memory: $mem, Disk: $disk]" && sleep 5; done &
       df -Th;
       uname -a;
