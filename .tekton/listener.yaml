@@ -5,17 +5,6 @@ metadata:
 spec:
   params: []
   resourcetemplates:
-    - apiVersion: v1
-      kind: PersistentVolumeClaim
-      metadata:
-        name: pipelinerun-pvc
-      spec:
-        resources:
-          requests:
-            storage:  5Gi
-        volumeMode: Filesystem
-        accessModes:
-          - ReadWriteOnce
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
@@ -23,10 +12,6 @@ spec:
       spec:
         pipelineRef:
             name: pipeline
-        workspaces:
-          - name: pipeline-pvc
-            persistentVolumeClaim:
-              claimName: pipelinerun-pvc
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: TriggerBinding

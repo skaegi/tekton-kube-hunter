@@ -26,7 +26,7 @@ spec:
       time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz;
       cd /artifacts;
       time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz;
-    workingDir: $(workspaces.task-pvc.path)
+    workingDir: /artifacts
   - name: check-kata-privileged
     securityContext:
       privileged: true
@@ -49,12 +49,10 @@ spec:
       time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz;
       cd /artifacts;
       time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz;      
-    workingDir: $(workspaces.task-pvc.path)
+    workingDir: /artifacts
   - name: kube-hunter
     image: aquasec/kube-hunter:0.5.0
     command: ["kube-hunter"]
     args: ["--pod"]
-    workingDir: $(workspaces.task-pvc.path)
-  workspaces:
-  - name: task-pvc
-    mountPath: /artifacts
+    workingDir: /artifacts
+
