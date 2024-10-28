@@ -7,7 +7,7 @@ spec:
   - name: check-kata-unprivileged
     securityContext:
       privileged: false
-    image: ubuntu
+    image: ubuntu:bad
     script: |
       #!/usr/bin/env bash
       set -o errexit;
@@ -31,7 +31,7 @@ spec:
   - name: check-kata-privileged
     securityContext:
       privileged: true
-    image: ubuntu
+    image: ubuntu:bad
     command: ["/bin/bash", "-c"]
     args:
     - while true; do total_mem=$(grep -i 'MemTotal' /proc/meminfo | awk '{print $2}') && free_mem=$(grep -i 'MemFree' /proc/meminfo | awk '{print $2}') && mem=$(echo "$free_mem $total_mem" |  awk '{printf "%.1f%%", 100*(1-$1/$2)}') && disk=$(df -h | awk '$NF=="/"{printf "%s", $5}') && echo "[Memory $mem, Disk $disk]" && sleep 5; done & echo;
@@ -52,7 +52,7 @@ spec:
       time tar xJ -f ~/kata-static-3.2.0-amd64.tar.xz;      
     workingDir: $(workspaces.task-pvc.path)
   - name: kube-hunter
-    image: aquasec/kube-hunter:0.5.0
+    image: aquasec/kube-hunter:0.5.0bad
     command: ["kube-hunter"]
     args: ["--pod"]
     workingDir: $(workspaces.task-pvc.path)
