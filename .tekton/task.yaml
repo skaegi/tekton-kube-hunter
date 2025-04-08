@@ -5,6 +5,7 @@ metadata:
 spec:
   steps:
   - name: check-kata-unprivileged
+    runtimeClassName: kata-remote-x86-large
     securityContext:
       privileged: false
     image: ubuntu
