@@ -5,12 +5,14 @@ metadata:
 spec:
   steps:
   - name: check-kata-unprivileged
+    onError: continue
     runtimeClassName: kata-remote-x86-large
     securityContext:
       privileged: false
     image: ubuntu
     script: |
       #!/usr/bin/env bash
+      exit 66;
       set -o errexit;
       while true; do total_mem=$(grep -i 'MemTotal' /proc/meminfo | awk '{print $2}') && free_mem=$(grep -i 'MemAvailable' /proc/meminfo | awk '{print $2}') && mem=$(echo "$free_mem $total_mem" |  awk '{printf "%.1f%%", 100*(1-$1/$2)}') && disk=$(df -h | awk '$NF=="/"{printf "%s", $5}') && echo "[Memory: $mem, Disk: $disk]" && sleep 5; done & echo
       df -Th;
