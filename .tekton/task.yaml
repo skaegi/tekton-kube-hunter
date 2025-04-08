@@ -6,7 +6,7 @@ spec:
   steps:
   - name: check-kata-unprivileged
     onError: continue
-    runtimeClassName: kata-remote-x86-large
+    runtimeClassName: kata
     securityContext:
       privileged: false
     image: ubuntu
